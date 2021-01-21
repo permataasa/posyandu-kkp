@@ -20,7 +20,7 @@
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats">
                 <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-                <div class="count">1</div>
+                <div class="count">5</div>
                 <h3>Data Kader</h3>
                 <p>Lorem ipsum psdea itgum rixt.</p>
             </div>

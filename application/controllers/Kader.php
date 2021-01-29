@@ -10,13 +10,25 @@ class Kader extends CI_Controller
 
     public function index()
     {
-        $data['user'] = $this->db->get_where('user', ['id_users' => '1'])->row_array();
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         // print_r($data);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar', $data);
-        $this->load->view('dashboard', $data);
+        $this->load->view('dashboard/dashboard', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function datakader()
+    {
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        // print_r($data);
+
+        $this->load->view('templates/header-datatables');
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('kader/index', $data);
+        $this->load->view('templates/footer-datatables');
     }
 }

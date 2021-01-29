@@ -14,13 +14,11 @@
 <!-- jQuery -->
 <script src="<?= base_url('vendors/jquery/dist/jquery.min.js') ?>"></script>
 <!-- Bootstrap -->
-<script src="<?= base_url('vendors/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
+<script src="<?= base_url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- FastClick -->
 <script src="<?= base_url('vendors/fastclick/lib/fastclick.js') ?>"></script>
 <!-- NProgress -->
 <script src="<?= base_url('vendors/nprogress/nprogress.js') ?>"></script>
-<!-- Chart.js -->
-<script src="<?= base_url('vendors/Chart.js/dist/Chart.min.js') ?>"></script>
 <!-- gauge.js -->
 <script src="<?= base_url('vendors/gauge.js/dist/gauge.min.js') ?>"></script>
 <!-- bootstrap-progressbar -->
@@ -48,9 +46,25 @@
 <!-- bootstrap-daterangepicker -->
 <script src="<?= base_url('vendors/moment/min/moment.min.js') ?>"></script>
 <script src="<?= base_url('vendors/bootstrap-daterangepicker/daterangepicker.js') ?>"></script>
-
+<!-- Toastr alert -->
+<script src="<?= base_url('build/js/toastr.min.js') ?>"></script>
+<!-- Sweet Alert 2 -->
+<script src="<?= base_url('/build/js/dist/sweetalert2.all.min.js'); ?>"></script>
+<script src="<?= base_url('/build/js/dist/myscript.js'); ?>"></script>
 <!-- Custom Theme Scripts -->
 <script src="<?= base_url('build/js/custom.min.js') ?>"></script>
+
+<script type="text/javascript">
+    <?php if ($this->session->flashdata('success')) { ?>
+        toastr.success("<?php echo $this->session->flashdata('success'); ?>");
+    <?php } else if ($this->session->flashdata('psn')) {  ?>
+        toastr.error("<?php echo $this->session->flashdata('psn'); ?>");
+    <?php } else if ($this->session->flashdata('warning')) {  ?>
+        toastr.warning("<?php echo $this->session->flashdata('warning'); ?>");
+    <?php } else if ($this->session->flashdata('info')) {  ?>
+        toastr.info("<?php echo $this->session->flashdata('info'); ?>");
+    <?php } ?>
+</script>
 
 </body>
 

@@ -10,13 +10,13 @@ class Login extends CI_Controller
 		$this->load->library('form_validation');
 	}
 
-	// BEGIN LOGIN
+	// MULAI LOGIN
 	public function index()
 	{
-
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		if ($this->form_validation->run() == false) {
-			$this->load->view('login');
+			$this->load->view('login/login');
+			$this->load->view('login/footer-login');
 		} else {
 			$this->_login();
 		}
@@ -39,41 +39,42 @@ class Login extends CI_Controller
 					$data = [
 						'username' => $user['username'],
 						'name' => $user['name'],
-						'email' => $user['email'],
 						'level_id' => $user['level_id'],
 						'is_active' => $user['is_active']
 					];
 					$this->session->set_userdata($data);
 					if ($user['level_id'] == 1) {
-						$this->session->set_flashdata('msgs', 'Selamat Datang Di Aplikasi Posyandu!');
-						redirect('Kader');
+						$this->session->set_flashdata('success', 'Selamat Datang, Kader!');
+						redirect('kader');
 					} else {
-						$this->session->set_flashdata('msgs', 'Selamat Datang Di Aplikasi Posyandu!');
-						redirect('User');
+						$this->session->set_flashdata('success', 'Selamat Datang, Bidan!');
+						redirect('bidan');
 					}
 				} else {
-					$this->session->set_flashdata('msg', 'Password yang anda masukkan salah');
-					redirect('Login');
+					$this->session->set_flashdata('msg-info', 'Password yang anda masukkan salah');
+					redirect('login');
 				}
 			} else {
-				$this->session->set_flashdata('msg', 'Username belum aktif');
-				redirect('Login');
+				$this->session->set_flashdata('msg-info', 'Username belum aktif');
+				redirect('login');
 			}
 		} else {
-			$this->session->set_flashdata('msg', 'Username yang anda masukkan belum terdaftar');
-			redirect('Login');
+			$this->session->set_flashdata('msg-info', 'Username yang anda masukkan belum terdaftar');
+			redirect('login');
 		}
 	}
-	// END OF LOGIN
+	// SELESAI LOGIN
 
-	// BEGIN LOGOUT
+	// MULAI LOGOUT
 	public function logout()
 	{
 
 		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('name');
 		$this->session->unset_userdata('level_id');
 
-		redirect('Login');
+		$this->session->set_flashdata('warning', 'Anda sudah keluar dari aplikasi!');
+		redirect('login');
 	}
-	// END OF LOGOUT
+	// SELESAI LOGOUT
 }

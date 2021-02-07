@@ -6,16 +6,15 @@ class Login extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->load->library('form_validation');
 	}
 
 	// MULAI LOGIN
 	public function index()
 	{
+		$data['title'] = 'Posyandu EH Indah';
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		if ($this->form_validation->run() == false) {
-			$this->load->view('login/login');
+			$this->load->view('login/login', $data);
 			$this->load->view('login/footer-login');
 		} else {
 			$this->_login();
@@ -37,6 +36,7 @@ class Login extends CI_Controller
 				// if(password_verify($pw, $user['password'])){
 				if ($pw == $pass) {
 					$data = [
+						'id_users' => $user['id_users'],
 						'username' => $user['username'],
 						'name' => $user['name'],
 						'level_id' => $user['level_id'],
@@ -44,11 +44,23 @@ class Login extends CI_Controller
 					];
 					$this->session->set_userdata($data);
 					if ($user['level_id'] == 1) {
-						$this->session->set_flashdata('success', 'Selamat Datang, Kader!');
-						redirect('kader');
+						date_default_timezone_set('Asia/Jakarta');
+						$tanggal = date('y-m-d h:i:s');
+
+						$data = array('user_id' => $user['id_users'], 'date_time' => $tanggal);
+						$this->db->insert('login_attempts', $data);
+
+						$this->session->set_flashdata('success', 'Selamat Datang, Petugas!');
+						redirect('dashboard/petugas');
 					} else {
+						date_default_timezone_set('Asia/Jakarta');
+						$tanggal = date('y-m-d h:i:s');
+
+						$data = array('user_id' => $user['id_users'], 'date_time' => $tanggal);
+						$this->db->insert('login_attempts', $data);
+
 						$this->session->set_flashdata('success', 'Selamat Datang, Bidan!');
-						redirect('bidan');
+						redirect('dashboard/bidan');
 					}
 				} else {
 					$this->session->set_flashdata('msg-info', 'Password yang anda masukkan salah');
@@ -68,12 +80,12 @@ class Login extends CI_Controller
 	// MULAI LOGOUT
 	public function logout()
 	{
+		$this->session->set_flashdata('warning', 'Anda sudah keluar dari aplikasi');
 
 		$this->session->unset_userdata('username');
 		$this->session->unset_userdata('name');
 		$this->session->unset_userdata('level_id');
 
-		$this->session->set_flashdata('warning', 'Anda sudah keluar dari aplikasi!');
 		redirect('login');
 	}
 	// SELESAI LOGOUT

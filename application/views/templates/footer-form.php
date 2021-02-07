@@ -54,6 +54,12 @@
 <script src="<?= base_url('/build/js/dist/myscript.js'); ?>"></script>
 
 <script type="text/javascript">
+    $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        // alert(fileName);
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+
     <?php if ($this->session->flashdata('success')) { ?>
         toastr.success("<?php echo $this->session->flashdata('success'); ?>");
     <?php } else if ($this->session->flashdata('psn')) {  ?>

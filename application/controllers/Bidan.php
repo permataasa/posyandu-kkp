@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Ibu extends CI_Controller
+class Bidan extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Ibu_model');
+        $this->load->model('Bidan_model');
     }
 
     public function index()
     {
-        $data['title'] = 'Data Ibu | Posyandu EH Indah';
+        $data['title'] = 'Data Bidan | Posyandu EH Indah';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
-        $data['ibu'] = $this->Ibu_model->getDataIbu();
+        $data['bidan'] = $this->Bidan_model->getDataBidan();
 
         // $this->form_validation->set_rules('mapel', 'Mata Pelajaran', 'required');
         // $this->form_validation->set_rules('guru_id', 'Pengajar', 'required');
@@ -39,16 +39,20 @@ class Ibu extends CI_Controller
             $this->db->insert('mapel', $data);
             $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
 
-            redirect('ibu');
+            redirect('bidan');
         }
         // print_r($data);
 
         $this->load->view('templates/header-datatables', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar', $data);
-        $this->load->view('ibu/index', $data);
+        $this->load->view('bidan/index', $data);
         $this->load->view('templates/footer-datatables');
     }
+
+    // MULAI INDEX DATA IBU
+
+    // SELESAI INDEX DATA IBU
 
     //     // MULAI CREATE DATA IBU
     //     public function createData()
@@ -92,13 +96,13 @@ class Ibu extends CI_Controller
     //     }
     //     // SELESAI UPDATE DATA IBU
 
-    // MULAI DELETE DATA IBU
+    // MULAI DELETE DATA BIDAN
     public function deleteData($id)
     {
-        $this->Ibu_model->delDataIbu($id);
+        $this->Bidan_model->delDataBidan($id);
         $this->session->set_flashdata('msg', 'Berhasil Dihapus');
 
-        redirect('Ibu/index');
+        redirect('Bidan/index');
     }
-    // SELESAI DELETE DATA IBU
+    // SELESAI DELETE DATA BIDAN
 }

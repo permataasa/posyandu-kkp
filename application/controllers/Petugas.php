@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Ibu extends CI_Controller
+class Petugas extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Ibu_model');
+        $this->load->model('Petugas_model');
     }
 
     public function index()
     {
-        $data['title'] = 'Data Ibu | Posyandu EH Indah';
+        $data['title'] = 'Data Petugas | Posyandu EH Indah';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
-        $data['ibu'] = $this->Ibu_model->getDataIbu();
+        $data['petugas'] = $this->Petugas_model->getDataPetugas();
 
         // $this->form_validation->set_rules('mapel', 'Mata Pelajaran', 'required');
         // $this->form_validation->set_rules('guru_id', 'Pengajar', 'required');
@@ -46,9 +46,13 @@ class Ibu extends CI_Controller
         $this->load->view('templates/header-datatables', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar', $data);
-        $this->load->view('ibu/index', $data);
+        $this->load->view('petugas/index', $data);
         $this->load->view('templates/footer-datatables');
     }
+
+    // MULAI INDEX DATA IBU
+
+    // SELESAI INDEX DATA IBU
 
     //     // MULAI CREATE DATA IBU
     //     public function createData()
@@ -92,13 +96,13 @@ class Ibu extends CI_Controller
     //     }
     //     // SELESAI UPDATE DATA IBU
 
-    // MULAI DELETE DATA IBU
+    // MULAI DELETE DATA PETUGAS
     public function deleteData($id)
     {
-        $this->Ibu_model->delDataIbu($id);
+        $this->Petugas_model->delDataPetugas($id);
         $this->session->set_flashdata('msg', 'Berhasil Dihapus');
 
-        redirect('Ibu/index');
+        redirect('Petugas/index');
     }
-    // SELESAI DELETE DATA IBU
+    // SELESAI DELETE DATA PETUGAS
 }

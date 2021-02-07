@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="<?= base_url('build/img/icon-posyandu.png'); ?>">
 
-    <title>Posyandu EH Indah</title>
+    <title><?= $title; ?></title>
 
     <!-- Bootstrap -->
     <link href="<?= base_url('vendors/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">

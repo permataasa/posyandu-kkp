@@ -13,7 +13,7 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?php echo base_url('user/profile'); ?>" method="POST">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?php echo base_url('user/profile'); ?>" method="POST" enctype="multipart/form-data">
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="username">Username <span class="required">*</span>
                             </label>
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="col-md-9 col-sm-9">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="image" name="image">
+                                            <input type="file" class="custom-file-input" id="image" name="image" />
                                             <label class="custom-file-label" for="image">Choose file</label>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">
-                                <button type="submit" class="btn btn-success">Update</button>
+                                <button type="submit" name="submit" class="btn btn-success">Update</button>
                             </div>
                         </div>
                     </form>

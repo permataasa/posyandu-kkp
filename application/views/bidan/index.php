@@ -1,7 +1,7 @@
 <div class="right_col" role="main">
     <div class="page-title">
         <div class="title_left">
-            <h3>Data Anak</h3>
+            <h3>Data Bidan</h3>
         </div>
     </div>
     <div class="flash-dataw" data-flashdata="<?php echo $this->session->flashdata('msg'); ?>"></div>
@@ -13,7 +13,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <button type="button" class="btn btn-primary">Tambah Data Anak</button>
+                    <button type="button" class="btn btn-primary">Tambah Data Bidan</button>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -26,31 +26,27 @@
                                             <th>No</th>
                                             <th>Nama lengkap</th>
                                             <th>Tempat/Tanggal Lahir</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Nama Ibu</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <?php $i = 1; ?>
-                                        <?php foreach ($anak as $n) : ?>
+                                        <?php foreach ($bidan as $d) : ?>
                                             <tr>
                                                 <th scope="row">
                                                     <center><?= $i; ?></center>
                                                 </th>
-                                                <td><?= $n['nama_anak']; ?></td>
-                                                <td><?= $n['tempat_lahir'] . ', ' . $n['tgl_lahir']; ?></td>
-                                                <td><?= $n['jenis_kelamin']; ?></td>
-                                                <td><?= $n['nama_ibu']; ?></td>
+                                                <td><?= $d['nama_bidan']; ?></td>
+                                                <td><?= $d['tempat_lahir'] . ', ' . $d['tanggal_lahir']; ?></td>
                                                 <td>
-                                                    <a data-toggle="modal" data-target="#newViewAnakModal<?= $n['id_anak']; ?>" href="<?= base_url(); ?>anak/viewData/<?= $n['id_anak']; ?>" class="btn btn-info btn-circle btn-sm">
+                                                    <a data-toggle="modal" data-target="#newViewBidanModal<?= $d['id_bidan']; ?>" href="<?= base_url(); ?>bidan/viewData/<?= $d['id_bidan']; ?>" class="btn btn-info btn-circle btn-sm">
                                                         <i class="fa fa-sticky-note"></i>
                                                     </a>
-                                                    <a data-toggle="modal" data-target="#newEditAnakModal<?= $n['id_anak']; ?>" href="<?= base_url(); ?>anak/editData/<?= $n['id_anak']; ?>" class="btn btn-warning btn-circle btn-sm">
+                                                    <a data-toggle="modal" data-target="#newEditBidanModal<?= $d['id_bidan']; ?>" href="<?= base_url(); ?>bidan/editData/<?= $d['id_bidan']; ?>" class="btn btn-warning btn-circle btn-sm">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="<?= base_url(''); ?>anak/deleteData/<?= $n['id_anak']; ?>" class="btn btn-danger btn-circle btn-sm tbl-hapus">
+                                                    <a href="<?= base_url(''); ?>bidan/deleteData/<?= $d['id_bidan']; ?>" class="btn btn-danger btn-circle btn-sm tbl-hapus">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>

@@ -30,14 +30,14 @@
                     </li>
                 </ul>
                 <ul class="nav side-menu">
-                    <li><a href="<?= base_url('bidan') ?>"><i class="fas fa-user"></i> Data Bidan</a>
+                    <li><a href="<?= base_url('bidan') ?>"><i class="fa fa-user"></i> Data Bidan</a>
                     </li>
                 </ul>
             </div>
             <div class="menu_section">
                 <h3>Layanan</h3>
                 <ul class="nav side-menu">
-                    <li><a href="<?= base_url('') ?>"><i class="fa fa-file-text"></i> Penimbangan Anak</a>
+                    <li><a href="<?= base_url('penimbangan_anak/index') ?>"><i class="fa fa-file-text"></i> Penimbangan Anak</a>
                     </li>
                 </ul>
                 <ul class="nav side-menu">

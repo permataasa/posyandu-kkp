@@ -14,7 +14,7 @@
   <!-- Bootstrap -->
   <link href="<?= base_url('vendors/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
   <!-- Font Awesome -->
-  <link href="<?= base_url('vendors/font-awesome/css/all.min.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('vendors/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
   <!-- NProgress -->
   <link href="<?= base_url('vendors/nprogress/nprogress.css') ?>" rel="stylesheet">
   <!-- iCheck -->

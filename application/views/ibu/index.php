@@ -85,7 +85,7 @@
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama-ibu">Nama Ibu</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="nama-ibu" name="nama-ibu" required="required" class="form-control" value="<?= $ibu['username']; ?>" readonly value="<?= $ibu['username']; ?>" readonly>>
+                                        <input type="text" id="nama-ibu" name="nama-ibu" required="required" class="form-control">
                                     </div>
                                 </div>
                                 <div class="item form-group">
@@ -105,13 +105,13 @@
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="gol-dar">Golongan Darah</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="gol-dar" name="gol-dar" class="form-control" value="<?= $ibu['username']; ?>" readonly>>
+                                        <input type="text" id="gol-dar" name="gol-dar" class="form-control">
                                     </div>
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="pekerjaan-ibu">Pekerjaan Ibu</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="pekerjaan-ibu" name="pekerjaan-ibu" class="form-control" value="<?= $ibu['username']; ?>" readonly>>
+                                        <input type="text" id="pekerjaan-ibu" name="pekerjaan-ibu" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama-suami">Nama Suami</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="nama-suami" name="nama-suami" required="required" class="form-control" value="<?= $ibu['username']; ?>" readonly>>
+                                        <input type="text" id="nama-suami" name="nama-suami" required="required" class="form-control">
                                     </div>
                                 </div>
                                 <div class="item form-group">
@@ -139,7 +139,7 @@
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="pekerjaan-suami">Pekerjaan Suami</label>
                                     <div class="col-md-9">
-                                        <input type="text" id="pekerjaan-suami" name="pekerjaan-suami" class="form-control" value="<?= $ibu['username']; ?>" readonly>>
+                                        <input type="text" id="pekerjaan-suami" name="pekerjaan-suami" class="form-control">
                                     </div>
                                 </div>
                             </div>

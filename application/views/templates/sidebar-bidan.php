@@ -18,7 +18,7 @@
             <div class="menu_section">
                 <h3>Layanan</h3>
                 <ul class="nav side-menu">
-                    <li><a href="<?= base_url('') ?>"><i class="fa fa-plus-square"></i> Imunisasi Anak</a>
+                    <li><a href="<?= base_url('imunisasi_anak/index') ?>"><i class="fa fa-plus-square"></i> Imunisasi Anak</a>
                     </li>
                 </ul>
             </div>

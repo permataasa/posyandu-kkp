@@ -1,10 +1,10 @@
 <div class="right_col" role="main">
     <div class="page-title">
         <div class="title_left">
-            <h3>Penimbangan Anak</h3>
+            <h3>Imunisasi Anak</h3>
         </div>
     </div>
-    <div class="flash-datap" data-flashdata="<?php echo $this->session->flashdata('msg'); ?>"></div>
+    <div class="flash-datar" data-flashdata="<?php echo $this->session->flashdata('msg'); ?>"></div>
     <?php if ($this->session->flashdata('msg')) : ?>
 
     <?php endif; ?>
@@ -14,7 +14,7 @@
             <div class="x_panel">
                 <div class="x_content">
                     <br />
-                    <form id="penimbangan-form" name="penimbangan-form" class="form-horizontal form-label-left" action="<?php echo base_url('penimbangan_anak/submit'); ?>" method="POST" enctype="multipart/form-data">
+                    <form id="imunisasi-form" name="imunisasi-form" class="form-horizontal form-label-left" action="<?php echo base_url('imunisasi_anak/submit'); ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="username">Nama Anak
                             </label>
@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="divider-dashed"></div>
-                        <h2>Pertumbuhan</h2>
+                        <h2>Imunisasi</h2>
                         <div class="divider-dashed"></div>
 
                         <div class="form-group row">
@@ -91,29 +91,18 @@
                             </label>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="bb">Berat Badan [BB]
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="imun">Imunisasi
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <input type=number step=any id="bb" name="bb" class="form-control">
+                                <input type=text id="imun" name="imun" class="form-control">
                             </div>
-                            <label class="col-form-label label-align" for="bb">kg
-                            </label>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="tb">Tinggi Badan [TB]
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                                <input type=number step=any id="tb" name="tb" class="form-control">
-                            </div>
-                            <label class="col-form-label label-align" for="tb">cm
-                            </label>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Deteksi</label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Vitamin A</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <p style="margin-top: 5px !important;margin-bottom: -2rem !important;">
-                                    <input type="radio" class="flat" name="deteksi" id="deteksiS" value="Sesuai" checked="" /> Sesuai
-                                    <input type="radio" class="flat" name="deteksi" id="deteksiT" value="Tidak Sesuai" /> Tidak Sesuai
+                                    <input type="radio" class="flat" name="deteksi" id="vita-merah" value="Sesuai" checked="" /> Merah
+                                    <input type="radio" class="flat" name="deteksi" id="vita-biru" value="Tidak Sesuai" /> Biru
                                 </p>
                             </div>
                         </div>
@@ -161,7 +150,7 @@
                                                     <td><?= $d['tgl_lahir']; ?></td>
                                                     <td><?= $d['nama_ibu']; ?></td>
                                                     <td>
-                                                        <button id="pilihAnak" type="button" data-id="<?= $d['id_anak']; ?>" data-nama="<?= $d['nama_anak']; ?>" data-tgllahir="<?= $d['tgl_lahir']; ?>" data-idibu="<?= $d['ibu_id']; ?>" data-ibu="<?= $d['nama_ibu']; ?>" data-jk="<?= $d['jenis_kelamin']; ?>" class="btnSelectAnak btn btn-primary btn-sm">Pilih</button>
+                                                        <button id="pilihAnak_Bidan" type="button" data-id="<?= $d['id_anak']; ?>" data-nama="<?= $d['nama_anak']; ?>" data-tgllahir="<?= $d['tgl_lahir']; ?>" data-idibu="<?= $d['ibu_id']; ?>" data-ibu="<?= $d['nama_ibu']; ?>" data-jk="<?= $d['jenis_kelamin']; ?>" class="btnSelectAnak btn btn-primary btn-sm">Pilih</button>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

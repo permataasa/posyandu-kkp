@@ -36,29 +36,29 @@ const flashe = $('.flash-datae').data('flashdata');
 
 if (flashe) {
     Swal.fire(
-        'Data Kader',
+        'Data Petugas',
         flashe,
         'success'
     );
 }
 
-// Pesan Data Level Access
+// Pesan Penimbangan Anak
 const flashp = $('.flash-datap').data('flashdata');
 
 if (flashp) {
     Swal.fire(
-        'Data Level Access',
+        'Penimbangan Anak',
         flashp,
         'success'
     );
 }
 
-// Pesan Data User
+// Pesan Imunisasi Anak
 const flashr = $('.flash-datar').data('flashdata');
 
 if (flashr) {
     Swal.fire(
-        'Data User',
+        'Imunisasi Anak',
         flashr,
         'success'
     );

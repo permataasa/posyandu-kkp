@@ -48,7 +48,7 @@
             <div class="menu_section">
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
-                    <li><a href="<?= base_url('') ?>"><i class="fa fa-file-pdf-o"></i> Laporan Anak</a>
+                    <li><a href="<?= base_url('laporan_anak/index') ?>"><i class="fa fa-file-pdf-o"></i> Laporan Anak</a>
                     </li>
                 </ul>
             </div>

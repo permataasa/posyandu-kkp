@@ -1,20 +1,16 @@
 <div class="right_col" role="main">
     <div class="page-title">
         <div class="title_left">
-            <h3>Imunisasi Anak</h3>
+            <h3>Laporan Anak</h3>
         </div>
     </div>
-    <div class="flash-datar" data-flashdata="<?php echo $this->session->flashdata('msg'); ?>"></div>
-    <?php if ($this->session->flashdata('msg')) : ?>
-
-    <?php endif; ?>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_content">
                     <br />
-                    <form id="imunisasi-form" name="imunisasi-form" class="form-horizontal form-label-left" action="<?php echo base_url('imunisasi_anak/submit_imun'); ?>" method="POST" enctype="multipart/form-data">
+                    <form id="laporan-filter" name="laporan-filter" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="username">Nama Anak
                             </label>
@@ -25,14 +21,6 @@
                                     <span class="input-group-btn">
                                         <button id="pilihData" name="pilihData" type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#DataAnakModal">Pilih</button>
                                     </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Kelamin</label>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="input-group">
-                                    <input type="text" name="jenis_kelamin" id="jenis_kelamin" readonly="" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -53,7 +41,16 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Nama Ibu
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_ayah">Nama Ayah
+                            </label>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="input-group">
+                                    <input type="text" name="nama_ayah" id="nama_ayah" class="form-control" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_ibu">Nama Ibu
                             </label>
                             <div class="col-md-6 col-sm-6">
                                 <div class="input-group">
@@ -64,60 +61,16 @@
                         </div>
 
                         <div class="divider-dashed"></div>
-                        <h2>Imunisasi</h2>
-                        <div class="divider-dashed"></div>
-
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Tanggal Sekarang
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                                <input class="date-picker form-control" name="tgl_skrng" id="tgl_skrng" type="text" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
-                                <script>
-                                    function timeFunctionLong(input) {
-                                        setTimeout(function() {
-                                            input.type = 'text';
-                                        }, 60000);
-                                    }
-                                </script>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="usia">Usia
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                                <input type=number step=any id="usia" name="usia" class="form-control">
-                            </div>
-                            <label class="col-form-label label-align" for="bulan">bulan
-                            </label>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="imun">Imunisasi
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                                <input type=text id="imun" name="imun" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Vitamin A</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <p style="margin-top: 5px !important;margin-bottom: -2rem !important;">
-                                    <input type="radio" class="flat" name="deteksi" id="vita-merah" value="Sesuai" checked="" /> Merah
-                                    <input type="radio" class="flat" name="deteksi" id="vita-biru" value="Tidak Sesuai" /> Biru
-                                </p>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Keterangan
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                                <textarea id="keterangan" class="form-control" name="keterangan" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.." data-parsley-validation-threshold="10"></textarea>
-                            </div>
-                        </div>
-                        <div class="ln_solid"></div>
                         <div class="form-group row">
                             <div class="col-md-6 col-sm-6 offset-md-3">
-                                <button type="submit" id="proses" name="proses" class="btn btn-success">Proses</button>
+                                <button type="submit" id="proseslaporan" name="proseslaporan" class="btn btn-info">Proses</button>
+                                <button type="submit" id="printlaporan" name="printlaporan" class="btn btn-success">Print</button>
                             </div>
+                        </div>
+                        <div class="divider-dashed"></div>
+
+                        <div class="col-sm-12">
+                            <div id="rowData"></div>
                         </div>
                     </form>
 
@@ -139,6 +92,7 @@
                                                 <th>Jenis Kelamin</th>
                                                 <th>Tanggal Lahir</th>
                                                 <th>Nama Ibu</th>
+                                                <th>Nama Ayah</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -149,8 +103,9 @@
                                                     <td><?= $d['jenis_kelamin']; ?></td>
                                                     <td><?= $d['tgl_lahir']; ?></td>
                                                     <td><?= $d['nama_ibu']; ?></td>
+                                                    <td><?= $d['nama_suami']; ?></td>
                                                     <td>
-                                                        <button id="pilihAnak_Bidan" type="button" data-id="<?= $d['id_anak']; ?>" data-nama="<?= $d['nama_anak']; ?>" data-tgllahir="<?= $d['tgl_lahir']; ?>" data-idibu="<?= $d['ibu_id']; ?>" data-ibu="<?= $d['nama_ibu']; ?>" data-jk="<?= $d['jenis_kelamin']; ?>" class="btnSelectAnak btn btn-primary btn-sm">Pilih</button>
+                                                        <button id="pilihAnak_Laporan" type="button" data-id="<?= $d['id_anak']; ?>" data-nama="<?= $d['nama_anak']; ?>" data-tgllahir="<?= $d['tgl_lahir']; ?>" data-idibu="<?= $d['ibu_id']; ?>" data-ibu="<?= $d['nama_ibu']; ?>" data-ayah="<?= $d['nama_suami']; ?>" class="btnSelectAnakLaporan btn btn-primary btn-sm">Pilih</button>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

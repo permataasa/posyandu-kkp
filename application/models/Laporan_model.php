@@ -3,36 +3,33 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Laporan_model extends CI_Model
 {
-
-    // MULAI KONTEN CARD
-    public function dataIbu()
+    // MULAI CRUD DATA ANAK IBU
+    public function getDataAnakIbu()
     {
-        $res = $this->db->count_all_results('ibu');
-        return $res;
-    }
+        $query = "SELECT anak.*, ibu.nama_ibu, ibu.nama_suami
+                    From anak JOIN ibu
+                    ON anak.ibu_id = ibu.id_ibu
+                    ";
 
-    public function dataAnak()
-    {
-        $res = $this->db->count_all_results('anak');
-        return $res;
+        return $this->db->query($query)->result_array();
     }
+    // SELESAI CRUD DATA ANAK IBU
 
-    public function dataPetugas()
+    function get($where = array())
     {
-        $res = $this->db->count_all_results('petugas');
-        return $res;
-    }
 
-    public function dataBidan()
-    {
-        $res = $this->db->count_all_results('bidan');
-        return $res;
-    }
+        $this->db->select('h.*, p.nama_ibu, p.nama_suami, p.alamat')
+            ->from('penimbangan h')
+            ->join('ibu p', 'p.id_ibu = h.ibu_id')
+            ->join('anak i', 'i.id_anak = h.anak_id');
+        if (count($where) > 0)
+            $this->db->where($where);
 
-    public function dataLog($id)
-    {
-        $sql = "SELECT * FROM login_attempts WHERE user_id = '$id'";
-        return $this->db->query($sql)->num_rows();
+        // $this->db->group_by('h.idPesanan');
+
+        $res = $this->db->get();
+
+        echo $this->db->last_query();
+        return $res->result();
     }
-    // SELESAI KONTEN CARD
 }

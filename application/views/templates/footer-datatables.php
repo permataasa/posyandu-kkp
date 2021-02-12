@@ -72,6 +72,24 @@
             $('#DataAnakModal').modal('toggle');
         });
 
+        $('.btnSelectAnakLaporan').click(function() {
+            var id = $(this).data('id');
+            var nama = $(this).data('nama');
+            var tgl_lahir = $(this).data('tgllahir');
+            var ayah = $(this).data('ayah');
+            var idibu = $(this).data('idibu');
+            var nama_ibu = $(this).data('ibu');
+
+            $('#id_anak').val(id);
+            $('#nama_anak').val(nama);
+            $('#tgl_lahir').val(tgl_lahir);
+            $('#nama_ayah').val(ayah);
+            $('#ibu_id').val(idibu);
+            $('#nama_ibu').val(nama_ibu);
+
+            $('#DataAnakModal').modal('toggle');
+        });
+
         $("#pilihAnak").click(function() {
             getPertumbuhan();
         });
@@ -82,6 +100,19 @@
 
         $("#tgl_skrng").change(function() {
             getUsia();
+        });
+
+        $('#proseslaporan').click(function() {
+            $.ajax({
+                url: '<?php echo site_url('laporan/getList'); ?>',
+                type: 'POST',
+                data: $('#laporan-filter').serialize(),
+                dataType: 'html',
+                success: function(res) {
+                    $('#rowData').html(res);
+                }
+            });
+            alert($.ajax);
         });
 
         // $('#proses').click(function() {

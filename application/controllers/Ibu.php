@@ -16,43 +16,6 @@ class Ibu extends CI_Controller
 
         $data['ibu'] = $this->Ibu_model->getDataIbu();
 
-        // $this->form_validation->set_rules('nama-ibu', 'Nama Ibu', 'required');
-        // $this->form_validation->set_rules('nama-suami', 'Nama Suami', 'required');
-        // $this->form_validation->set_rules('tgl-lahir-ibu', 'Tgl Lahir Ibu', 'required');
-
-        if ($this->form_validation->run() == false) {
-            // $this->load->view('templates/header-datatables', $data);
-            // $this->load->view('templates/sidebar', $data);
-            // $this->load->view('templates/topbar', $data);
-            // $this->load->view('ibu/index', $data);
-            // $this->load->view('templates/footer-datatables');
-        } else {
-
-            $data = [
-                'nama-ibu' => $this->input->post('nama_ibu'),
-                'tempat-lhr-ibu' => $this->input->post('tempat_lahir'),
-                'tgl-lahir-ibu' => $this->input->post('tgl_lahir'),
-                'gol-dar' => $this->input->post('gol_dar'),
-                'pendidikan-ibu' => $this->input->post('pendidikan'),
-                'pekerjaan-ibu' => $this->input->post('pekerjaan'),
-                'nama-suami' => $this->input->post('nama_suami'),
-                'tempat-lhr-suami' => $this->input->post('tempat_lahir_suami'),
-                'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
-                'pendidikan-suami' => $this->input->post('pendidikan_suami'),
-                'pekerjaan-suami' => $this->input->post('pekerjaan_suami'),
-                'alamat' => $this->input->post('alamat'),
-                'kecamatan' => $this->input->post('kecamatan'),
-                'kota' => $this->input->post('kota'),
-                'no-tlp' => $this->input->post('no_tlp'),
-            ];
-
-            $this->db->insert('ibu', $data);
-            $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
-
-            redirect('ibu');
-        }
-        // print_r($data);
-
         $this->load->view('templates/header-datatables', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar', $data);
@@ -64,7 +27,7 @@ class Ibu extends CI_Controller
     public function createDataIbu()
     {
         $data = [
-            'nama_ibu' => $this->input->post('nama_ibu'),
+            'nama_ibu' => $this->input->post('nama-ibu'),
             'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
             'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
             'gol_dar' => $this->input->post('gol-dar'),
@@ -72,7 +35,7 @@ class Ibu extends CI_Controller
             'pekerjaan' => $this->input->post('pekerjaan-ibu'),
             'nama_suami' => $this->input->post('nama-suami'),
             'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
-            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
+            'tgl_lahir_suami' => $this->input->post('tgl-lahir-suami'),
             'pendidikan_suami' => $this->input->post('pendidikan-suami'),
             'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
             'alamat' => $this->input->post('alamat'),
@@ -106,7 +69,7 @@ class Ibu extends CI_Controller
     public function updateDataIbu($id)
     {
         $data = [
-            'nama_ibu' => $this->input->post('nama_ibu'),
+            'nama_ibu' => $this->input->post('nama-ibu'),
             'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
             'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
             'gol_dar' => $this->input->post('gol-dar'),
@@ -114,7 +77,7 @@ class Ibu extends CI_Controller
             'pekerjaan' => $this->input->post('pekerjaan-ibu'),
             'nama_suami' => $this->input->post('nama-suami'),
             'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
-            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
+            'tgl_lahir_suami' => $this->input->post('tgl-lahir-suami'),
             'pendidikan_suami' => $this->input->post('pendidikan-suami'),
             'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
             'alamat' => $this->input->post('alamat'),

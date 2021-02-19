@@ -30,21 +30,12 @@ class Bidan extends CI_Controller
     public function createDataBidan()
     {
         $data = [
-            'nama_ibu' => $this->input->post('nama_ibu'),
-            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
-            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
-            'gol_dar' => $this->input->post('gol-dar'),
-            'pendidikan' => $this->input->post('pendidikan-ibu'),
-            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
-            'nama_suami' => $this->input->post('nama-suami'),
-            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
-            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
-            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
-            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
-            'alamat' => $this->input->post('alamat'),
-            'kecamatan' => $this->input->post('kecamatan'),
-            'kota' => $this->input->post('kota'),
-            'no_tlp' => $this->input->post('no-tlp'),
+            'nama_bidan' => $this->input->post('nama-bidan'),
+            'tempat_lahir' => $this->input->post('tmt-lahir'),
+            'tanggal_lahir' => $this->input->post('tgl-lahir'),
+            'no_hp' => $this->input->post('no-hp'),
+            'pendidikan_terakhir' => $this->input->post('pendidikan-terakhir'),
+            'user_id' => $this->input->post('user_id'),
         ];
 
         $this->db->insert('bidan', $data);
@@ -72,25 +63,16 @@ class Bidan extends CI_Controller
     public function updateDataBidan($id)
     {
         $data = [
-            'nama_ibu' => $this->input->post('nama_ibu'),
-            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
-            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
-            'gol_dar' => $this->input->post('gol-dar'),
-            'pendidikan' => $this->input->post('pendidikan-ibu'),
-            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
-            'nama_suami' => $this->input->post('nama-suami'),
-            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
-            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
-            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
-            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
-            'alamat' => $this->input->post('alamat'),
-            'kecamatan' => $this->input->post('kecamatan'),
-            'kota' => $this->input->post('kota'),
-            'no_tlp' => $this->input->post('no-tlp'),
+            'nama_bidan' => $this->input->post('nama-bidan'),
+            'tempat_lahir' => $this->input->post('tmt-lahir'),
+            'tanggal_lahir' => $this->input->post('tgl-lahir'),
+            'no_hp' => $this->input->post('no-hp'),
+            'pendidikan_terakhir' => $this->input->post('pendidikan-terakhir'),
+            'user_id' => $this->input->post('user_id'),
 
         ];
 
-        $this->Bidan_model->updDataPetugas($id, $data);
+        $this->Bidan_model->updDataBidan($id, $data);
         $this->session->set_flashdata('msg', 'Berhasil Diubah');
 
         redirect('bidan/index');

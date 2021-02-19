@@ -47,14 +47,14 @@
     //     $('#demo-form2').parsley('validate');
     // }
     $(document).ready(function() {
-        $("#usia").prop("disabled", true);
-        $("#bb").prop("disabled", true);
-        $("#tb").prop("disabled", true);
-        // $("#deteksiS").prop("disabled", true);
-        // $("#deteksiT").prop("disabled", true);
-        $("#tgl_skrng").prop("disabled", true);
-        $("#imun").prop("disabled", true);
-        $("#keterangan").prop("disabled", true);
+        // $("#usia").prop("disabled", true);
+        // $("#bb").prop("disabled", true);
+        // $("#tb").prop("disabled", true);
+        // // $("#deteksiS").prop("disabled", true);
+        // // $("#deteksiT").prop("disabled", true);
+        // $("#tgl_skrng").prop("disabled", true);
+        // $("#imun").prop("disabled", true);
+        // $("#keterangan").prop("disabled", true);
 
         $('.btnSelectAnak').click(function() {
             var id = $(this).data('id');

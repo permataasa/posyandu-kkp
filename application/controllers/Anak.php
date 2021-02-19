@@ -7,6 +7,7 @@ class Anak extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Anak_model');
+        $this->load->model('Ibu_model');
     }
 
     // MULAI INDEX DATA ANAK
@@ -16,6 +17,7 @@ class Anak extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $data['anak'] = $this->Anak_model->getDataAnak();
+        $data['ibu'] = $this->Ibu_model->getDataIbu();
 
         $this->load->view('templates/header-datatables', $data);
         $this->load->view('templates/sidebar');
@@ -29,21 +31,12 @@ class Anak extends CI_Controller
     public function createDataAnak()
     {
         $data = [
-            'nama_ibu' => $this->input->post('nama_ibu'),
-            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
-            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
-            'gol_dar' => $this->input->post('gol-dar'),
-            'pendidikan' => $this->input->post('pendidikan-ibu'),
-            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
-            'nama_suami' => $this->input->post('nama-suami'),
-            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
-            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
-            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
-            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
-            'alamat' => $this->input->post('alamat'),
-            'kecamatan' => $this->input->post('kecamatan'),
-            'kota' => $this->input->post('kota'),
-            'no_tlp' => $this->input->post('no-tlp'),
+            'nik_anak' => $this->input->post('nik-anak'),
+            'nama_anak' => $this->input->post('nama-anak'),
+            'tempat_lahir' => $this->input->post('tmt-lahir'),
+            'tgl_lahir' => $this->input->post('tgl-lahir'),
+            'jenis_kelamin' => $this->input->post('jenis-kelamin'),
+            'ibu_id' => $this->input->post('ibu_id'),
         ];
 
         $this->db->insert('anak', $data);
@@ -71,25 +64,15 @@ class Anak extends CI_Controller
     public function updateDataAnak($id)
     {
         $data = [
-            'nama_ibu' => $this->input->post('nama_ibu'),
-            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
-            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
-            'gol_dar' => $this->input->post('gol-dar'),
-            'pendidikan' => $this->input->post('pendidikan-ibu'),
-            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
-            'nama_suami' => $this->input->post('nama-suami'),
-            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
-            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
-            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
-            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
-            'alamat' => $this->input->post('alamat'),
-            'kecamatan' => $this->input->post('kecamatan'),
-            'kota' => $this->input->post('kota'),
-            'no_tlp' => $this->input->post('no-tlp'),
-
+            'nik_anak' => $this->input->post('nik-anak'),
+            'nama_anak' => $this->input->post('nama-anak'),
+            'tempat_lahir' => $this->input->post('tmt-lahir'),
+            'tgl_lahir' => $this->input->post('tgl-lahir'),
+            'jenis_kelamin' => $this->input->post('jenis-kelamin'),
+            'ibu_id' => $this->input->post('ibu_id'),
         ];
 
-        $this->Anak_model->updDataPetugas($id, $data);
+        $this->Anak_model->updDataAnak($id, $data);
         $this->session->set_flashdata('msg', 'Berhasil Diubah');
 
         redirect('anak/index');

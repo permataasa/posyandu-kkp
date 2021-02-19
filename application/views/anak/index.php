@@ -78,7 +78,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form id="demo-form2" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
+                <form id="demo-form2" action="<?php echo base_url('anak/createDataAnak') ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 form-group">
@@ -138,8 +138,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                 </form>
             </div>
@@ -170,7 +170,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <form id="demo-form2" action="<?php echo base_url('anak/updateDataAnak') . $row['id_anak']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
+                    <form id="demo-form2" action="<?php echo base_url('anak/updateDataAnak/') . $row['id_anak']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 form-group">
@@ -242,13 +242,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Update</button>
-            </div>
-            </form>
         </div>
 </div>
 </div>

@@ -33,6 +33,9 @@ class Penimbangan_Anak extends CI_Controller
         $data['title'] = 'Penimbangan Anak | Posyandu EH Indah';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
+        $user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $deteksiValues = $_POST['deteksi'];
+
         $this->Penimbangan_model->add(
             array(
                 'anak_id' => $this->input->post('id_anak'),
@@ -40,10 +43,12 @@ class Penimbangan_Anak extends CI_Controller
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
                 'ibu_id' => $this->input->post('ibu_id'),
                 'usia' => $this->input->post('usia'),
+                'deteksi' => $deteksiValues[0],
                 'tb' => $this->input->post('tb'),
                 'bb' => $this->input->post('bb'),
                 'tgl_skrng' => $this->input->post('tgl_skrng'),
                 'ket' => $this->input->post('keterangan'),
+                'created_by' => $user['id_users'],
             )
         );
 

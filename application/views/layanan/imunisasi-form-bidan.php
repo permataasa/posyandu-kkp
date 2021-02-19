@@ -101,8 +101,8 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Vitamin A</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <p style="margin-top: 5px !important;margin-bottom: -2rem !important;">
-                                    <input type="radio" class="flat" name="deteksi" id="vita-merah" value="Sesuai" checked="" /> Merah
-                                    <input type="radio" class="flat" name="deteksi" id="vita-biru" value="Tidak Sesuai" /> Biru
+                                    <input type="radio" class="flat" name="vit[]" id="vita-merah" value="Merah" checked="" /> Merah
+                                    <input type="radio" class="flat" name="vit[]" id="vita-biru" value="Biru" /> Biru
                                 </p>
                             </div>
                         </div>

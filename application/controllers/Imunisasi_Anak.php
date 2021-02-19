@@ -50,6 +50,9 @@ class Imunisasi_Anak extends CI_Controller
         $data['title'] = 'Imunisasi Anak | Posyandu EH Indah';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
+        $user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $vitValues = $_POST['vit'];
+
         $this->Imunisasi_model->add(
             array(
                 'anak_id' => $this->input->post('id_anak'),
@@ -58,8 +61,10 @@ class Imunisasi_Anak extends CI_Controller
                 'ibu_id' => $this->input->post('ibu_id'),
                 'usia' => $this->input->post('usia'),
                 'imunisasi' => $this->input->post('imun'),
+                'vit_a' => $vitValues[0],
                 'tgl_skrng' => $this->input->post('tgl_skrng'),
                 'ket' => $this->input->post('keterangan'),
+                'created_by' => $user['id_users'],
             )
         );
 
@@ -71,10 +76,13 @@ class Imunisasi_Anak extends CI_Controller
     // SELESAI TAMBAH DATA
 
     // MULAI TAMBAH DATA
-    public function submit_bidan()
+    public function submit_imun()
     {
         $data['title'] = 'Imunisasi Anak | Posyandu EH Indah';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+        $user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $vitValues = $_POST['vit'];
 
         $this->Imunisasi_model->add(
             array(
@@ -83,21 +91,18 @@ class Imunisasi_Anak extends CI_Controller
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
                 'ibu_id' => $this->input->post('ibu_id'),
                 'usia' => $this->input->post('usia'),
-                'tb' => $this->input->post('tb'),
-                'bb' => $this->input->post('bb'),
+                'imunisasi' => $this->input->post('imun'),
+                'vit_a' => $vitValues[0],
                 'tgl_skrng' => $this->input->post('tgl_skrng'),
                 'ket' => $this->input->post('keterangan'),
+                'created_by' => $user['id_users'],
             )
         );
 
         // $this->db->insert('penimbangan', $data);
         $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
 
-        $this->load->view('templates/header-datatables', $data);
-        $this->load->view('templates/sidebar-bidan');
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('layanan/imunisasi-form', $data);
-        $this->load->view('templates/footer-datatables');
+        redirect('imunisasi_anak/imunisasi');
     }
     // SELESAI TAMBAH DATA
 }

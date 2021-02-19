@@ -9,7 +9,7 @@ if (flash) {
     );
 }
 
-// Pesan Data Menu
+// Pesan Data Ibu
 const flashq = $('.flash-dataq').data('flashdata');
 
 if (flashq) {
@@ -20,7 +20,7 @@ if (flashq) {
     );
 }
 
-// Pesan Data Sub Menu
+// Pesan Data Anak
 const flashw = $('.flash-dataw').data('flashdata');
 
 if (flashw) {
@@ -31,7 +31,7 @@ if (flashw) {
     );
 }
 
-// Pesan Data Level
+// Pesan Data Petugas
 const flashe = $('.flash-datae').data('flashdata');
 
 if (flashe) {
@@ -64,56 +64,13 @@ if (flashr) {
     );
 }
 
-const flashn = $('.flash-datan').data('flashdata');
+// Pesan Data Bidan
+const flashdan = $('.flash-datadan').data('flashdata');
 
-if (flashn) {
+if (flashdan) {
     Swal.fire(
-        'Data User',
-        flashn,
-        'success'
-    );
-}
-
-// Pesan Data Mapel
-const flashmas = $('.flash-datamas').data('flashdata');
-
-if (flashmas) {
-    Swal.fire(
-        'Data Mata Pelajaran',
-        flashmas,
-        'success'
-    );
-}
-
-//Pesan Data Kelas
-const flashkel = $('.flash-datakel').data('flashdata');
-
-if (flashkel) {
-    Swal.fire(
-        'Data Kelas',
-        flashkel,
-        'success'
-    );
-}
-
-// Pesan Data Takad
-const flashtak = $('.flash-datatak').data('flashdata');
-
-if (flashtak) {
-    Swal.fire(
-        'Data Tahun Akademik',
-        flashtak,
-        'success'
-    );
-}
-
-// Pesan Data PreNil
-const flashpre = $('.flash-datapre').data('flashdata');
-
-if (flashpre) {
-    Swal.fire(
-        'Data Predikat Nilai',
-        flashpre,
+        'Data Bidan',
+        flashdan,
         'success'
     );
 }

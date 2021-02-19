@@ -12,7 +12,7 @@ class Petugas extends CI_Controller
     // MULAI INDEX DATA PETUGAS
     public function index()
     {
-        $data['title'] = 'Data PETUGAS | Posyandu EH Indah';
+        $data['title'] = 'Data Petugas | Posyandu EH Indah';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $data['users'] = $this->Petugas_model->getDataUsers();
@@ -31,21 +31,15 @@ class Petugas extends CI_Controller
     public function createDataPetugas()
     {
         $data = [
-            'nama_ibu' => $this->input->post('nama_ibu'),
-            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
-            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
-            'gol_dar' => $this->input->post('gol-dar'),
-            'pendidikan' => $this->input->post('pendidikan-ibu'),
-            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
-            'nama_suami' => $this->input->post('nama-suami'),
-            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
-            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
-            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
-            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
-            'alamat' => $this->input->post('alamat'),
-            'kecamatan' => $this->input->post('kecamatan'),
-            'kota' => $this->input->post('kota'),
-            'no_tlp' => $this->input->post('no-tlp'),
+            'nama_petugas' => $this->input->post('nama-petugas'),
+            'tempat_lahir' => $this->input->post('tmt-lahir'),
+            'tgl_lahir' => $this->input->post('tgl-lahir'),
+            'no_hp' => $this->input->post('no-hp'),
+            'jabatan' => $this->input->post('jabatan'),
+            'pendidikan_terakhir' => $this->input->post('pendidikan-terakhir'),
+            'lama_kerja' => $this->input->post('lama-kerja'),
+            'tugas_pokok' => $this->input->post('tugas-pokok'),
+            'user_id' => $this->input->post('user_id'),
         ];
 
         $this->db->insert('petugas', $data);
@@ -73,22 +67,15 @@ class Petugas extends CI_Controller
     public function updateDataPetugas($id)
     {
         $data = [
-            'nama_ibu' => $this->input->post('nama_ibu'),
-            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
-            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
-            'gol_dar' => $this->input->post('gol-dar'),
-            'pendidikan' => $this->input->post('pendidikan-ibu'),
-            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
-            'nama_suami' => $this->input->post('nama-suami'),
-            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
-            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
-            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
-            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
-            'alamat' => $this->input->post('alamat'),
-            'kecamatan' => $this->input->post('kecamatan'),
-            'kota' => $this->input->post('kota'),
-            'no_tlp' => $this->input->post('no-tlp'),
-
+            'nama_petugas' => $this->input->post('nama-petugas'),
+            'tempat_lahir' => $this->input->post('tmt-lahir'),
+            'tgl_lahir' => $this->input->post('tgl-lahir'),
+            'no_hp' => $this->input->post('no-hp'),
+            'jabatan' => $this->input->post('jabatan'),
+            'pendidikan_terakhir' => $this->input->post('pendidikan-terakhir'),
+            'lama_kerja' => $this->input->post('lama-kerja'),
+            'tugas_pokok' => $this->input->post('tugas-pokok'),
+            'user_id' => $this->input->post('user_id'),
         ];
 
         $this->Petugas_model->updDataPetugas($id, $data);

@@ -112,8 +112,8 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Deteksi</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <p style="margin-top: 5px !important;margin-bottom: -2rem !important;">
-                                    <input type="radio" class="flat" name="deteksi" id="deteksiS" value="Sesuai" checked="" /> Sesuai
-                                    <input type="radio" class="flat" name="deteksi" id="deteksiT" value="Tidak Sesuai" /> Tidak Sesuai
+                                    <input type="radio" class="flat" name="deteksi[]" id="deteksiS" value="Sesuai" checked="" /> Sesuai
+                                    <input type="radio" class="flat" name="deteksi[]" id="deteksiT" value="Tidak Sesuai" /> Tidak Sesuai
                                 </p>
                             </div>
                         </div>

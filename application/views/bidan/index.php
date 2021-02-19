@@ -4,7 +4,7 @@
             <h3>Data Bidan</h3>
         </div>
     </div>
-    <div class="flash-dataw" data-flashdata="<?php echo $this->session->flashdata('msg'); ?>"></div>
+    <div class="flash-datadan" data-flashdata="<?php echo $this->session->flashdata('msg'); ?>"></div>
     <?php if ($this->session->flashdata('msg')) : ?>
 
     <?php endif; ?>
@@ -74,7 +74,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form id="demo-form2" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
+                <form id="demo-form2" action="<?php echo base_url('bidan/createDataBidan') ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 form-group">
@@ -122,7 +122,7 @@
                                         <select name="user_id" id="user_id" class="form-control" required>
                                             <option value="">-- Pilih Username --</option>
                                             <?php foreach ($users as $m) : ?>
-                                                <option value="<?= $m['id_user']; ?>"><?= $m['username']; ?></option>
+                                                <option value="<?= $m['id_users']; ?>"><?= $m['username']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -131,8 +131,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
@@ -163,7 +163,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <form id="demo-form2" action="<?php echo base_url('bidan/updateDataBidan') . $row['id_bidan']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
+                    <form id="demo-form2" action="<?php echo base_url('bidan/updateDataBidan/') . $row['id_bidan']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 form-group">
@@ -216,7 +216,7 @@
                                                 if (count($dist)) {
                                                     foreach ($dist as $item) {
                                                 ?>
-                                                        <option value="<?php echo $item->id_user; ?>" <?php if ($item->id_user == $row['user_id']) echo 'selected'; ?>> <?php echo $item->username; ?></option>
+                                                        <option value="<?php echo $item->id_users; ?>" <?php if ($item->id_users == $row['user_id']) echo 'selected'; ?>> <?php echo $item->username; ?></option>
                                                 <?php
                                                     }
                                                 }
@@ -228,8 +228,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Update</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>

@@ -78,7 +78,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form id="demo-form2" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
+                <form id="demo-form2" action="<?php echo base_url('ibu/createDataIbu') ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6 col-sm-12 form-group">
@@ -86,6 +86,12 @@
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama-ibu">Nama Ibu</label>
                                     <div class="col-md-9">
                                         <input type="text" id="nama-ibu" name="nama-ibu" required="required" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="tempat-lhr-ibu">Tmpt Lahir Ibu</label>
+                                    <div class="col-md-9">
+                                        <input type="text" id="tempat-lhr-ibu" name="tempat-lhr-ibu" class="form-control">
                                     </div>
                                 </div>
                                 <div class="item form-group">
@@ -147,6 +153,12 @@
                                     </div>
                                 </div>
                                 <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="tempat-lhr-suami">Tmpt Lahir Suami</label>
+                                    <div class="col-md-9">
+                                        <input type="text" id="tempat-lhr-suami" name="tempat-lhr-suami" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align">Tgl Lahir Suami
                                     </label>
                                     <div class="col-md-9">
@@ -183,8 +195,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
@@ -207,14 +219,14 @@
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <form id="demo-form2" action="<?php echo base_url('ibu/updateDataIbu') . $row['id_ibu']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
+                    <form id="demo-form2" action="<?php echo base_url('ibu/updateDataIbu/') . $row['id_ibu']; ?>" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-6 col-sm-12 form-group">
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama-ibu">Nama Ibu</label>
                                         <div class="col-md-9">
-                                            <input type="text" id="nama-ibu" name="nama_ibu" required="required" class="form-control" value="<?= $row['nama_ibu'] ?>">
+                                            <input type="text" id="nama-ibu" name="nama-ibu" required="required" class="form-control" value="<?= $row['nama_ibu'] ?>">
                                         </div>
                                     </div>
                                     <div class="item form-group">
@@ -324,8 +336,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Update</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>

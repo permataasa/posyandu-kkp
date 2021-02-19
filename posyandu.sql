@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2021 at 03:24 PM
+-- Generation Time: Feb 12, 2021 at 05:13 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -43,7 +43,7 @@ CREATE TABLE `anak` (
 --
 
 INSERT INTO `anak` (`id_anak`, `nik_anak`, `nama_anak`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `ibu_id`) VALUES
-(1, '', 'Audrey Nixie Aribah Santoso', 'Karawang', '2012-06-06', 'Perempuan', 1);
+(1, '', 'Audrey Nixie Aribah Santoso', 'Karawang', '2012-06-06', 'Perempuan', 2);
 
 -- --------------------------------------------------------
 
@@ -119,6 +119,14 @@ CREATE TABLE `imunisasi` (
   `ket` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `imunisasi`
+--
+
+INSERT INTO `imunisasi` (`id_imunisasi`, `anak_id`, `tgl_lahir`, `jenis_kelamin`, `ibu_id`, `tgl_skrng`, `usia`, `imunisasi`, `vit_a`, `ket`) VALUES
+(1, 1, '2012-06-06', 'Perempuan', 2, '2019-02-12', 84, 'flu', 'Merah', ''),
+(3, 1, '2012-06-06', 'Perempuan', 2, '2021-02-12', 108, 'flu', 'Merah', '');
+
 -- --------------------------------------------------------
 
 --
@@ -156,7 +164,15 @@ INSERT INTO `login_attempts` (`user_id`, `date_time`) VALUES
 (1, '2021-02-07 05:12:08'),
 (2, '2021-02-07 05:20:27'),
 (1, '2021-02-07 05:21:00'),
-(1, '2021-02-07 08:28:31');
+(1, '2021-02-07 08:28:31'),
+(1, '2021-02-07 09:37:56'),
+(1, '2021-02-11 03:17:12'),
+(1, '2021-02-11 03:21:59'),
+(1, '2021-02-11 09:34:17'),
+(1, '2021-02-11 09:50:11'),
+(1, '2021-02-12 07:32:48'),
+(1, '2021-02-12 10:15:28'),
+(1, '2021-02-12 10:44:02');
 
 -- --------------------------------------------------------
 
@@ -177,6 +193,16 @@ CREATE TABLE `penimbangan` (
   `deteksi` enum('Sesuai','Tidak Sesuai') NOT NULL,
   `ket` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `penimbangan`
+--
+
+INSERT INTO `penimbangan` (`id_penimbangan`, `anak_id`, `tgl_lahir`, `jenis_kelamin`, `ibu_id`, `tgl_skrng`, `usia`, `bb`, `tb`, `deteksi`, `ket`) VALUES
+(1, 1, '2012-06-06', 'Perempuan', 2, '2021-02-05', 106, 4, 4, 'Sesuai', ''),
+(3, 1, '2012-06-06', 'Perempuan', 2, '2019-01-11', 84, -4, 5, 'Sesuai', ''),
+(4, 1, '2012-06-06', 'Perempuan', 2, '2019-01-11', 84, -4, 5, 'Sesuai', ''),
+(5, 1, '2012-06-06', 'Perempuan', 2, '2021-02-12', 108, 9.5, 64, 'Sesuai', '');
 
 -- --------------------------------------------------------
 
@@ -226,7 +252,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_users`, `name`, `username`, `image`, `password`, `level_id`, `is_active`, `date_created`) VALUES
-(1, 'Putri Nugraheni', 'punug', 'icon-06.png', 'qwerty', 1, 1, 0),
+(1, 'Putri Nugraheni', 'punug', 'Fine-Day-Press-Wallpaper3A.jpg', 'qwerty', 1, 1, 0),
 (2, 'Lutfiana', 'fia', 'icon-02.png', 'qwerty', 2, 1, 111);
 
 -- --------------------------------------------------------
@@ -277,17 +303,13 @@ ALTER TABLE `ibu`
 -- Indexes for table `imunisasi`
 --
 ALTER TABLE `imunisasi`
-  ADD PRIMARY KEY (`id_imunisasi`),
-  ADD UNIQUE KEY `anak_id` (`anak_id`),
-  ADD UNIQUE KEY `ibu_id` (`ibu_id`);
+  ADD PRIMARY KEY (`id_imunisasi`);
 
 --
 -- Indexes for table `penimbangan`
 --
 ALTER TABLE `penimbangan`
-  ADD PRIMARY KEY (`id_penimbangan`),
-  ADD UNIQUE KEY `anak_id` (`anak_id`),
-  ADD UNIQUE KEY `ibu_id` (`ibu_id`);
+  ADD PRIMARY KEY (`id_penimbangan`);
 
 --
 -- Indexes for table `petugas`
@@ -335,7 +357,13 @@ ALTER TABLE `ibu`
 -- AUTO_INCREMENT for table `imunisasi`
 --
 ALTER TABLE `imunisasi`
-  MODIFY `id_imunisasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imunisasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `penimbangan`
+--
+ALTER TABLE `penimbangan`
+  MODIFY `id_penimbangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `petugas`

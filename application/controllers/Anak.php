@@ -9,6 +9,7 @@ class Anak extends CI_Controller
         $this->load->model('Anak_model');
     }
 
+    // MULAI INDEX DATA ANAK
     public function index()
     {
         $data['title'] = 'Data Anak | Posyandu EH Indah';
@@ -16,59 +17,43 @@ class Anak extends CI_Controller
 
         $data['anak'] = $this->Anak_model->getDataAnak();
 
-        $this->form_validation->set_rules('mapel', 'Mata Pelajaran', 'required');
-        $this->form_validation->set_rules('guru_id', 'Pengajar', 'required');
-        $this->form_validation->set_rules('kkm', 'KKM', 'required');
-        $this->form_validation->set_rules('jp', 'Jam Pelajaran', 'required');
-
-        if ($this->form_validation->run() == false) {
-            // $this->load->view('templates/header-datatables', $data);
-            // $this->load->view('templates/sidebar', $data);
-            // $this->load->view('templates/topbar', $data);
-            // $this->load->view('anak/index', $data);
-            // $this->load->view('templates/footer-datatables');
-        } else {
-
-            $data = [
-                'mata_pelajaran' => $this->input->post('mapel'),
-                'guru_id' => $this->input->post('guru_id'),
-                'kkm' => $this->input->post('kkm'),
-                'jam_pelajaran' => $this->input->post('jp'),
-            ];
-
-            $this->db->insert('mapel', $data);
-            $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
-
-            redirect('anak');
-        }
-        // print_r($data);
-
         $this->load->view('templates/header-datatables', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/topbar', $data);
         $this->load->view('anak/index', $data);
         $this->load->view('templates/footer-datatables');
     }
+    // SELESAI INDEX DATA ANAK
 
-    // MULAI INDEX DATA IBU
+    // MULAI CREATE DATA ANAK
+    public function createDataAnak()
+    {
+        $data = [
+            'nama_ibu' => $this->input->post('nama_ibu'),
+            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
+            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
+            'gol_dar' => $this->input->post('gol-dar'),
+            'pendidikan' => $this->input->post('pendidikan-ibu'),
+            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
+            'nama_suami' => $this->input->post('nama-suami'),
+            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
+            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
+            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
+            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
+            'alamat' => $this->input->post('alamat'),
+            'kecamatan' => $this->input->post('kecamatan'),
+            'kota' => $this->input->post('kota'),
+            'no_tlp' => $this->input->post('no-tlp'),
+        ];
 
-    // SELESAI INDEX DATA IBU
+        $this->db->insert('anak', $data);
+        $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
 
-    //     // MULAI CREATE DATA IBU
-    //     public function createData()
-    //     {
-    //         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-    //         // print_r($data);
+        redirect('anak');
+    }
+    // SELESAI CREATE DATA ANAK
 
-    //         $this->load->view('templates/header-datatables');
-    //         $this->load->view('templates/sidebar');
-    //         $this->load->view('templates/topbar', $data);
-    //         $this->load->view('ibu/index', $data);
-    //         $this->load->view('templates/footer-datatables');
-    //     }
-    //     // SELESAI CREATE DATA IBU
-
-    //     // MULAI READ DATA IBU
+    //     // MULAI READ DATA ANAK
     //     public function viewData()
     //     {
     //         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
@@ -80,29 +65,44 @@ class Anak extends CI_Controller
     //         $this->load->view('ibu/index', $data);
     //         $this->load->view('templates/footer-datatables');
     //     }
-    //     // SELESAI READ DATA IBU
+    //     // SELESAI READ DATA ANAK
 
-    //     // MULAI UPDATE DATA IBU
-    //     public function editData()
-    //     {
-    //         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-    //         // print_r($data);
+    // MULAI UPDATE DATA ANAK
+    public function updateDataAnak($id)
+    {
+        $data = [
+            'nama_ibu' => $this->input->post('nama_ibu'),
+            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
+            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
+            'gol_dar' => $this->input->post('gol-dar'),
+            'pendidikan' => $this->input->post('pendidikan-ibu'),
+            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
+            'nama_suami' => $this->input->post('nama-suami'),
+            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
+            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
+            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
+            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
+            'alamat' => $this->input->post('alamat'),
+            'kecamatan' => $this->input->post('kecamatan'),
+            'kota' => $this->input->post('kota'),
+            'no_tlp' => $this->input->post('no-tlp'),
 
-    //         $this->load->view('templates/header-datatables');
-    //         $this->load->view('templates/sidebar');
-    //         $this->load->view('templates/topbar', $data);
-    //         $this->load->view('ibu/index', $data);
-    //         $this->load->view('templates/footer-datatables');
-    //     }
-    //     // SELESAI UPDATE DATA IBU
+        ];
+
+        $this->Anak_model->updDataPetugas($id, $data);
+        $this->session->set_flashdata('msg', 'Berhasil Diubah');
+
+        redirect('anak/index');
+    }
+    // SELESAI UPDATE DATA ANAK
 
     // MULAI DELETE DATA ANAK
-    public function deleteData($id)
+    public function deleteDataAnak($id)
     {
         $this->Anak_model->delDataAnak($id);
         $this->session->set_flashdata('msg', 'Berhasil Dihapus');
 
-        redirect('Anak/index');
+        redirect('anak/index');
     }
     // SELESAI DELETE DATA ANAK
 }

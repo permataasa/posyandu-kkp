@@ -11,6 +11,13 @@ class Bidan_model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
+    public function getDataUsers()
+    {
+        $query = "SELECT * From user";
+
+        return $this->db->query($query)->result_array();
+    }
+
     public function delDataBidan($id)
     {
         $this->db->where('id_bidan', $id);

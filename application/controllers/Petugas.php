@@ -9,39 +9,14 @@ class Petugas extends CI_Controller
         $this->load->model('Petugas_model');
     }
 
+    // MULAI INDEX DATA PETUGAS
     public function index()
     {
-        $data['title'] = 'Data Petugas | Posyandu EH Indah';
+        $data['title'] = 'Data PETUGAS | Posyandu EH Indah';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
+        $data['users'] = $this->Petugas_model->getDataUsers();
         $data['petugas'] = $this->Petugas_model->getDataPetugas();
-
-        // $this->form_validation->set_rules('mapel', 'Mata Pelajaran', 'required');
-        // $this->form_validation->set_rules('guru_id', 'Pengajar', 'required');
-        // $this->form_validation->set_rules('kkm', 'KKM', 'required');
-        // $this->form_validation->set_rules('jp', 'Jam Pelajaran', 'required');
-
-        if ($this->form_validation->run() == false) {
-            // $this->load->view('templates/header-datatables', $data);
-            // $this->load->view('templates/sidebar', $data);
-            // $this->load->view('templates/topbar', $data);
-            // $this->load->view('ibu/index', $data);
-            // $this->load->view('templates/footer-datatables');
-        } else {
-
-            $data = [
-                'mata_pelajaran' => $this->input->post('mapel'),
-                'guru_id' => $this->input->post('guru_id'),
-                'kkm' => $this->input->post('kkm'),
-                'jam_pelajaran' => $this->input->post('jp'),
-            ];
-
-            $this->db->insert('mapel', $data);
-            $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
-
-            redirect('ibu');
-        }
-        // print_r($data);
 
         $this->load->view('templates/header-datatables', $data);
         $this->load->view('templates/sidebar');
@@ -49,24 +24,36 @@ class Petugas extends CI_Controller
         $this->load->view('petugas/index', $data);
         $this->load->view('templates/footer-datatables');
     }
+    // SELESAI INDEX DATA PETUGAS
 
-    // MULAI INDEX DATA IBU
 
-    // SELESAI INDEX DATA IBU
+    // MULAI CREATE DATA PETUGAS
+    public function createDataPetugas()
+    {
+        $data = [
+            'nama_ibu' => $this->input->post('nama_ibu'),
+            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
+            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
+            'gol_dar' => $this->input->post('gol-dar'),
+            'pendidikan' => $this->input->post('pendidikan-ibu'),
+            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
+            'nama_suami' => $this->input->post('nama-suami'),
+            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
+            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
+            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
+            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
+            'alamat' => $this->input->post('alamat'),
+            'kecamatan' => $this->input->post('kecamatan'),
+            'kota' => $this->input->post('kota'),
+            'no_tlp' => $this->input->post('no-tlp'),
+        ];
 
-    //     // MULAI CREATE DATA IBU
-    //     public function createData()
-    //     {
-    //         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-    //         // print_r($data);
+        $this->db->insert('petugas', $data);
+        $this->session->set_flashdata('msg', 'Berhasil Ditambahkan');
 
-    //         $this->load->view('templates/header-datatables');
-    //         $this->load->view('templates/sidebar');
-    //         $this->load->view('templates/topbar', $data);
-    //         $this->load->view('ibu/index', $data);
-    //         $this->load->view('templates/footer-datatables');
-    //     }
-    //     // SELESAI CREATE DATA IBU
+        redirect('petugas');
+    }
+    // SELESAI CREATE DATA PETUGAS
 
     //     // MULAI READ DATA IBU
     //     public function viewData()
@@ -82,27 +69,42 @@ class Petugas extends CI_Controller
     //     }
     //     // SELESAI READ DATA IBU
 
-    //     // MULAI UPDATE DATA IBU
-    //     public function editData()
-    //     {
-    //         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-    //         // print_r($data);
+    // MULAI UPDATE DATA PETUGAS
+    public function updateDataPetugas($id)
+    {
+        $data = [
+            'nama_ibu' => $this->input->post('nama_ibu'),
+            'tempat_lahir' => $this->input->post('tempat-lhr-ibu'),
+            'tgl_lahir' => $this->input->post('tgl-lahir-ibu'),
+            'gol_dar' => $this->input->post('gol-dar'),
+            'pendidikan' => $this->input->post('pendidikan-ibu'),
+            'pekerjaan' => $this->input->post('pekerjaan-ibu'),
+            'nama_suami' => $this->input->post('nama-suami'),
+            'tempat_lahir_suami' => $this->input->post('tempat-lhr-suami'),
+            'tgl_lahir_suami' => $this->input->post('tgl_lahir_suami'),
+            'pendidikan_suami' => $this->input->post('pendidikan-suami'),
+            'pekerjaan_suami' => $this->input->post('pekerjaan-suami'),
+            'alamat' => $this->input->post('alamat'),
+            'kecamatan' => $this->input->post('kecamatan'),
+            'kota' => $this->input->post('kota'),
+            'no_tlp' => $this->input->post('no-tlp'),
 
-    //         $this->load->view('templates/header-datatables');
-    //         $this->load->view('templates/sidebar');
-    //         $this->load->view('templates/topbar', $data);
-    //         $this->load->view('ibu/index', $data);
-    //         $this->load->view('templates/footer-datatables');
-    //     }
-    //     // SELESAI UPDATE DATA IBU
+        ];
+
+        $this->Petugas_model->updDataPetugas($id, $data);
+        $this->session->set_flashdata('msg', 'Berhasil Diubah');
+
+        redirect('petugas/index');
+    }
+    // SELESAI UPDATE DATA PETUGAS
 
     // MULAI DELETE DATA PETUGAS
-    public function deleteData($id)
+    public function deleteDataPetugas($id)
     {
         $this->Petugas_model->delDataPetugas($id);
         $this->session->set_flashdata('msg', 'Berhasil Dihapus');
 
-        redirect('Petugas/index');
+        redirect('petugas/index');
     }
     // SELESAI DELETE DATA PETUGAS
 }

@@ -14,6 +14,13 @@ class Petugas_model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
+    public function getDataUsers()
+    {
+        $query = "SELECT * From user";
+
+        return $this->db->query($query)->result_array();
+    }
+
     public function delDataPetugas($id)
     {
         $this->db->where('id_petugas', $id);

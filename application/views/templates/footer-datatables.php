@@ -20,6 +20,8 @@
 <script src="<?= base_url('vendors/fastclick/lib/fastclick.js') ?>"></script>
 <!-- NProgress -->
 <script src="<?= base_url('vendors/nprogress/nprogress.js') ?>"></script>
+<!-- jquery.inputmask -->
+<script src="<?= base_url('/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js') ?>"></script>
 <!-- iCheck -->
 <script src="<?= base_url('vendors/iCheck/icheck.min.js') ?>"></script>
 <!-- Parsley -->

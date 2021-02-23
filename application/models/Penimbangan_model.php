@@ -5,7 +5,7 @@ class Penimbangan_model extends CI_Model
 {
     public $table = "penimbangan";
 
-    // MULAI CRUD DATA ANAK IBU
+    // MULAI GET, ADD DATA ANAK IBU
     public function getDataAnakIbu()
     {
         $query = "SELECT anak.*, ibu.nama_ibu
@@ -20,5 +20,5 @@ class Penimbangan_model extends CI_Model
     {
         $this->db->insert($this->table, $data);
     }
-    // SELESAI CRUD DATA ANAK IBU
+    // SELESAI GET, ADD DATA ANAK IBU
 }

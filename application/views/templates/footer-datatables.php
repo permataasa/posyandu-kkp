@@ -106,15 +106,15 @@
 
         $('#proseslaporan').click(function() {
             $.ajax({
-                url: '<?php echo site_url('laporan/getList'); ?>',
+                url: '<?php echo site_url('laporan_anak/cetak_laporan'); ?>',
                 type: 'POST',
-                data: $('#laporan-filter').serialize(),
+                data: $('#laporananak').serialize(),
                 dataType: 'html',
                 success: function(res) {
                     $('#rowData').html(res);
                 }
             });
-            alert($.ajax);
+            // alert($.ajax);
         });
 
         // $('#proses').click(function() {

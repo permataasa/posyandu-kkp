@@ -67,6 +67,7 @@ class Laporan_Anak extends CI_Controller
             $filter['i.tgl_lahir'] = $tgllahir;
 
             $dt = $this->Laporan_model->get($filter);
+            $dtId = $this->Laporan_model->getId($filter);
             // var_dump($dt);
             // die;
 
@@ -89,21 +90,21 @@ class Laporan_Anak extends CI_Controller
             //MUlai Data Anak
             $html = $html . "<h3>DATA ANAK</h3>";
             $html = $html . "<table>";
-            foreach ($dt as $r) {
+            foreach ($dtId as $i) {
                 $html = $html . "<tr>";
-                $html = $html . "<td style='width:150px'>NIK</td><td>:</td><td>" . $r->nik_anak . "</td>";
+                $html = $html . "<td style='width:150px'>NIK</td><td>:</td><td>" . $i->nik_anak . "</td>";
                 $html = $html . "</tr>";
                 $html = $html . "<tr>";
-                $html = $html . "<td style='width:150px'>Nama Anak</td><td>:</td><td>" . $r->nama_anak . "</td>";
+                $html = $html . "<td style='width:150px'>Nama Anak</td><td>:</td><td>" . $i->nama_anak . "</td>";
                 $html = $html . "</tr>";
                 $html = $html . "<tr>";
-                $html = $html . "<td style='width:150px'>Tanggal Lahir</td><td>:</td><td>" . date_format(date_create($r->tgl_lahir), "j F Y") . "</td>";
+                $html = $html . "<td style='width:150px'>Tanggal Lahir</td><td>:</td><td>" . date_format(date_create($i->tgl_lahir), "j F Y") . "</td>";
                 $html = $html . "</tr>";
                 $html = $html . "<tr>";
-                $html = $html . "<td style='width:150px'>Nama Ayah</td><td>:</td><td>" . $r->nama_suami . "</td>";
+                $html = $html . "<td style='width:150px'>Nama Ayah</td><td>:</td><td>" . $i->nama_suami . "</td>";
                 $html = $html . "</tr>";
                 $html = $html . "<tr>";
-                $html = $html . "<td style='width:150px'>Nama Ibu</td><td>:</td><td>" . $r->nama_ibu . "</td>";
+                $html = $html . "<td style='width:150px'>Nama Ibu</td><td>:</td><td>" . $i->nama_ibu . "</td>";
                 $html = $html . "</tr>";
             }
             $html = $html . "</table>";

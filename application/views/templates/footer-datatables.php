@@ -182,10 +182,9 @@
             var month = day * 30;
             /*using 30 as base as months can have 28, 29, 30 or 31 days depending a month in a year it itself is a different piece of comuptation*/
             var year = day * 365;
-
             //let the age conversion begin
             var years = Math.round(milliseconds / year);
-            var months = years * 12;
+            var months = (Math.round(milliseconds / month) - 1);
             var days = years * 365;
             var hours = Math.round(milliseconds / hour);
             var seconds = Math.round(milliseconds / second);
